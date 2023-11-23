@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './WeartherApp.css'
+import './WeartherAppNew.css'
 import searchIcon from '../Assets/search.png'
 import clearIcon from '../Assets/clear.png'
 import cloudIcon from '../Assets/cloud.png'
@@ -10,7 +10,7 @@ import windIcon from '../Assets/wind.png'
 import humidityIcon from '../Assets/humidity.png'
 
 
-export const WeatherApp = () => {
+export const WeatherAppCard = () => {
 
   const API_KEY = "8e6e21b9a1ca9b72af568a197fc780a9";
 
