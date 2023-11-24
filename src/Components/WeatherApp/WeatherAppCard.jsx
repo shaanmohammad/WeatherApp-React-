@@ -41,34 +41,33 @@ export const WeatherAppCard = () => {
     
   }
 
-  useEffect( ()=>{
-    // let url = `https://api.openweathermap.org/data/2.5/weather?q=India&units=Metric&appid=${API_KEY}`
-    // let response =  fetch(url);
-    // let data =  response.json();
-    // setWeather(data);
+  useEffect(()=>{    
     if (Object.keys(weather).length > 0 && weather.main) {
-      if (weather.weather[0].icon === "01d" || weather.weather[0].icon === "01n") {
-        setWeatherIcon(clearIcon)
-      } else if (weather.weather[0].icon === "02d" || weather.weather[0].icon === "02n") {
-        setWeatherIcon(cloudIcon)
-      } else if (weather.weather[0].icon === "03d" || weather.weather[0].icon === "03n") {
-        setWeatherIcon(drizzleIcon)
-      } else if (weather.weather[0].icon === "04d" || weather.weather[0].icon === "04n") {
-        setWeatherIcon(drizzleIcon)
-      } else if (weather.weather[0].icon === "09d" || weather.weather[0].icon === "09n") {
-        setWeatherIcon(rainIcon)
-      } else if (weather.weather[0].icon === "10d" || weather.weather[0].icon === "10n") {
-        setWeatherIcon(rainIcon)
-      } else if (weather.weather[0].icon === "11d" || weather.weather[0].icon === "11n") {
-        setWeatherIcon(drizzleIcon)
-      } else if (weather.weather[0].icon === "13d" || weather.weather[0].icon === "13n") {
-        setWeatherIcon(snowIcon)
-      } else if (weather.weather[0].icon === "50d" || weather.weather[0].icon === "50n") {
-        setWeatherIcon(cloudIcon)
-      } else {
-        setWeatherIcon(clearIcon)
-      }
+      const iconMapping = {
+        "01d": clearIcon,
+        "01n": clearIcon,
+        "02d": cloudIcon,
+        "02n": cloudIcon,
+        "03d": drizzleIcon,
+        "03n": drizzleIcon,
+        "04d": drizzleIcon,
+        "04n": drizzleIcon,
+        "09d": rainIcon,
+        "09n": rainIcon,
+        "10d": rainIcon,
+        "10n": rainIcon,
+        "11d": drizzleIcon,
+        "11n": drizzleIcon,
+        "13d": snowIcon,
+        "13n": snowIcon,
+        "50d": cloudIcon,
+        "50n": cloudIcon,
+      };
+    
+      const iconCode = weather.weather[0].icon;
+      setWeatherIcon(iconMapping[iconCode] || clearIcon);
     }
+    
     
   }, [weather])
 
